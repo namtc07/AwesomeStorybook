@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { View } from "react-native";
-import { MyButton } from "./Button";
+import { ButtonCustom } from "./Button";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-const meta = {
-  title: "MyButton",
-  component: MyButton,
+const button = {
+  title: "ButtonCustom",
+  component: ButtonCustom,
   args: {
     text: "Hello world",
+    onPress: () => alert("Button pressed!"),
+    colorIcon: "red",
   },
   decorators: [
     (Story) => (
@@ -16,10 +19,28 @@ const meta = {
       </View>
     ),
   ],
-} satisfies Meta<typeof MyButton>;
+} satisfies Meta<typeof ButtonCustom>;
 
-export default meta;
+export default button;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof button>;
 
-export const Basic: Story = {};
+export const Primary: Story = {
+  args: { text: "Primary" },
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline",
+    text: "Outline",
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    text: "Button with Icon",
+    iconName: "notifications-outline", // Tên icon
+    iconLibrary: Icon, // Loại icon
+    colorIcon: "red",
+  },
+};

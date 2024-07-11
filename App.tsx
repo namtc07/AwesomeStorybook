@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
+import { ButtonCustom } from "./components/Button/Button";
 
 function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
+      <ButtonCustom text="Hello" variant="outline" onPress={() => Alert.alert("hehe")} />
     </View>
   );
 }
